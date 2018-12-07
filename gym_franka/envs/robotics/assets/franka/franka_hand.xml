@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+
+    <body name="robot:hand" pos="0 0 0.107" euler="0 0 0" >
+        <geom name="hand" mesh="col_hand" type="mesh" class="collision"/>
+        <geom mesh="viz_hand" euler="-1.5707 0 0" type="mesh" class="visual"/>
+
+        <body name="finger1" pos="0 0 0.0584" euler="0 0 0" >
+            <joint name="robot:finger1" type="slide" axis="0 1 0" pos="0 0 0" range="0.0 0.04" />
+            <geom name="finger1" mesh="col_finger" type="mesh" class="collision"/>
+            <geom mesh="viz_finger" euler="1.5707 0 0" type="mesh" class="visual"/>
+        </body>
+
+        <body name="finger2" pos="0 0 0.0584" euler="0 0 -3.1415" >
+            <joint name="robot:finger2" type="slide" axis="0 -1 0" pos="0 0 0" range="-0.04 0" />
+            <geom name="finger2" mesh="col_finger" type="mesh" class="collision"/>
+            <geom mesh="viz_finger" euler="1.5707 0 0" type="mesh" class="visual"/>
+        </body>
+
+        <site name="grip" pos="0.02 0 0" rgba="0 0 0 0" size="0.02 0.02 0.02"/>
+    </body>
+
+</mujoco>

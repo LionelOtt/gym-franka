@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+    <body name="link0" pos="0 0 0">
+        <geom name="link0" mesh="col_link0" type="mesh" class="collision"/>
+        <geom mesh="viz_link0" euler="-1.5707 0 0" type="mesh" class="visual"/>
+
+        <body name="link1" pos="0 0 0.333">
+            <joint name="robot:joint1" pos="0 0 -0.333" range="-2.8973 2.8973" axis="0 0 1"/>
+            <geom name="link1" mesh="col_link1" type="mesh" class="collision"/>
+            <geom mesh="viz_link1" euler="-1.5707 0 0" type="mesh" class="visual"/>
+        
+            <body name="link2" pos="0 0 0" euler="-1.5707 0 0" >
+                <joint name="robot:joint2" pos="0 0 0" range="-1.7628 1.7628" axis="0 0 1"/>
+                <geom name="link2" mesh="col_link2" type="mesh" class="collision"/>
+                <geom mesh="viz_link2" euler="-1.5707 0 0" type="mesh" class="visual"/>
+            
+                <body name="link3" pos="0 -0.316 0" euler="1.5707 0 0" >
+                    <joint name="robot:joint3" pos="0 0 -0.12" range="-2.8973 2.8973" axis="0 0 1"/>
+                    <geom name="link3" mesh="col_link3" type="mesh" class="collision"/>
+                    <geom mesh="viz_link3" euler="-1.5707 0 0" type="mesh" class="visual"/>
+                
+                    <body name="link4" pos="0.0825 0 0" euler="1.5707 0 0" >
+                        <joint name="robot:joint4" pos="0 0 0" range="-3.0718 -0.0698" axis="0 0 1"/>
+                        <geom name="link4" mesh="col_link4" type="mesh" class="collision"/>
+                        <geom mesh="viz_link4" euler="-1.5707 0 0" type="mesh" class="visual"/>
+                    
+                        <body name="link5" pos="-0.0825 0.384 0" euler="-1.5707 0 0" >
+                            <joint name="robot:joint5" pos="0 0 -0.26" range="-2.8973 2.9873" axis="0 0 1"/>
+                            <geom name="link5" mesh="col_link5" type="mesh" class="collision"/>
+                            <geom mesh="viz_link5" euler="-1.5707 0 0" type="mesh" class="visual"/>
+                        
+                            <body name="link6" pos="0 0 0" euler="1.5707 0 0" >
+                                <joint name="robot:joint6" pos="0 0 0" range="-0.0175 3.7525" axis="0 0 1"/>
+                                <geom name="link6" mesh="col_link6" type="mesh" class="collision"/>
+                                <geom mesh="viz_link6" euler="-1.5707 0 0" type="mesh" class="visual"/>
+                            
+                                <body name="link7" pos="0.088 0 0" euler="1.5707 0 0" >
+                                    <joint name="robot:joint7" pos="0 0 0" range="-2.8973 2.9873" axis="0 0 1"/>
+                                    <geom name="link7" mesh="col_link7" type="mesh" class="collision"/>
+                                    <geom mesh="viz_link7" euler="-1.5707 0 0" type="mesh" class="visual"/>
+                                    
+                                    <include file="franka_hand.xml"/>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </body>
+</mujoco>

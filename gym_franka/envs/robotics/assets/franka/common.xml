@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+    <default>
+        <!-- Classes for various geometry objects for physical and visual properties -->
+        <default class="collision">
+            <geom contype="1" conaffinity="0" rgba="1 0 0 0.0"/>
+        </default>
+        <default class="visual">
+            <geom contype="0" conaffinity="0" rgba="1 1 1 1"/>
+        </default>
+
+        <!--<joint limited="true" damping="1" armature="0" axis="0 0 1" type="hinge"/>-->
+        <!--<geom contype="1" conaffinity="1" condim="1" rgba="0.8 0.6 0.4 1" margin="0.001" solref="0.02 1" solimp="0.8 0.8 0.01"/>-->
+        <joint armature="0.1" damping="1"/>
+        <geom conaffinity="1" condim="1" density="5.0" friction="1 0.5 0.5" margin="0.01" rgba="0.8 0.6 0.4 1"/> 
+        <motor ctrlrange="-1.0 1.0" ctrllimited="true"/>
+    </default>
+
+    <equality>
+        <!-- Links default hand grippers together -->
+        <joint name="robot:finger2" joint1="robot:finger1" joint2="robot:finger2" polycoef="0 -1 0 0 0"/>
+        <weld body1="robot:mocap" body2="robot:hand" solimp="0.9 0.95 0.001" solref="0.02 1"/>
+    </equality>
+
+    <asset>
+        <!-- Texture definitions -->
+        <!--<texture type="skybox" builtin="gradient" width="128" height="128" rgb1="0.4 0.6 0.8" rgb2="0 0 0"/>  -->
+        <texture type="skybox" builtin="gradient" rgb1="0.44 0.85 0.56" rgb2="0.46 0.87 0.58" width="32" height="32"></texture>
+        <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="127" height="1278" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" markrgb="1 1 1" random="0.01"/>  
+        <texture name="texplane" type="2d" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.15 0.2" width="512" height="512"/>
+
+        <!-- Material definitions -->
+        <material name="geom" texture="texgeom" texuniform="true"/>
+        <material name="floor_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"/>
+        <material name="table_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.93 0.93 0.93 1"/>
+        <material name="block_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"/>
+
+        <!-- Collision geometry -->
+        <mesh name="col_finger" file="collision/finger.stl"/>
+        <mesh name="col_hand"   file="collision/hand.stl"/>
+        <mesh name="col_link0"  file="collision/link0.stl"/>
+        <mesh name="col_link1"  file="collision/link1.stl"/>
+        <mesh name="col_link2"  file="collision/link2.stl"/>
+        <mesh name="col_link3"  file="collision/link3.stl"/>
+        <mesh name="col_link4"  file="collision/link4.stl"/>
+        <mesh name="col_link5"  file="collision/link5.stl"/>
+        <mesh name="col_link6"  file="collision/link6.stl"/>
+        <mesh name="col_link7"  file="collision/link7.stl"/>
+
+        <!-- Visualization geometry -->
+        <mesh name="viz_finger" file="visual/finger.stl"/>
+        <mesh name="viz_hand"   file="visual/hand.stl"/>
+        <mesh name="viz_link0"  file="visual/link0.stl"/>
+        <mesh name="viz_link1"  file="visual/link1.stl"/>
+        <mesh name="viz_link2"  file="visual/link2.stl"/>
+        <mesh name="viz_link3"  file="visual/link3.stl"/>
+        <mesh name="viz_link4"  file="visual/link4.stl"/>
+        <mesh name="viz_link5"  file="visual/link5.stl"/>
+        <mesh name="viz_link6"  file="visual/link6.stl"/>
+        <mesh name="viz_link7"  file="visual/link7.stl"/>
+    </asset>
+
+    <!--<actuator>-->
+    <!--    <motor gear="87" joint="robot:joint1"/>-->
+    <!--    <motor gear="87" joint="robot:joint2"/>-->
+    <!--    <motor gear="87" joint="robot:joint3"/>-->
+    <!--    <motor gear="87" joint="robot:joint4"/>-->
+    <!--    <motor gear="12" joint="robot:joint4"/>-->
+    <!--    <motor gear="12" joint="robot:joint4"/>-->
+    <!--    <motor gear="12" joint="robot:joint4"/>-->
+
+    <!--    <motor gear="20" joint="robot:finger1"/>-->
+    <!--</actuator>-->
+</mujoco>
