@@ -1,0 +1,4 @@
+*.sw[op]
+*.pyc
+MUJOCO_LOG.TXT
+tags
